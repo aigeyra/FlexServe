@@ -2,6 +2,7 @@ openapi: 3.0.0
 info:
   title: Vehicle API
   version: 1.0.0
+
 paths:
   /vehicles:
     get:
@@ -15,8 +16,8 @@ paths:
                 type: array
                 items:
                   oneOf:
-                    - $ref: '#/components/schemas/Car'
-                    - $ref: '#/components/schemas/Truck'
+                    - $ref: './schemas/car.yaml#/Car'
+                    - $ref: './schemas/truck.yaml#/Truck'
     post:
       summary: Add a new vehicle
       requestBody:
@@ -26,8 +27,8 @@ paths:
           application/json:
             schema:
               oneOf:
-                - $ref: '#/components/schemas/Car'
-                - $ref: '#/components/schemas/Truck'
+                - $ref: './schemas/car.yaml#/Car'
+                - $ref: './schemas/truck.yaml#/Truck'
       responses:
         '201':
           description: Vehicle created
@@ -57,7 +58,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Car'
+              $ref: './schemas/car.yaml#/Car'
       responses:
         '201':
           description: Car created
@@ -71,50 +72,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Truck'
+              $ref: './schemas/truck.yaml#/Truck'
       responses:
         '201':
           description: Truck created
-
-components:
-  schemas:
-    Vehicle:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        brand:
-          type: string
-        model:
-          type: string
-      required:
-        - id
-        - brand
-        - model
-
-    Car:
-      allOf:
-        - $ref: '#/components/schemas/Vehicle'
-        - type: object
-          properties:
-            numberOfDoors:
-              type: integer
-              minimum: 2
-              maximum: 5
-          required:
-            - numberOfDoors
-
-    Truck:
-      allOf:
-        - $ref: '#/components/schemas/Vehicle'
-        - type: object
-          properties:
-            loadCapacity:
-              type: integer
-              description: Load capacity in kilograms
-            numberOfAxles:
-              type: integer
-          required:
-            - loadCapacity
-            - numberOfAxles

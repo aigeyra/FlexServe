@@ -1,0 +1,15 @@
+components:
+  schemas:
+    Truck:
+      allOf:
+        - $ref: './vehicle.yaml#/components/schemas/Vehicle'
+        - type: object
+          properties:
+            loadCapacity:
+              type: integer
+              description: Load capacity in kilograms
+            numberOfAxles:
+              type: integer
+          required:
+            - loadCapacity
+            - numberOfAxles

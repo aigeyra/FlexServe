@@ -1,0 +1,13 @@
+components:
+  schemas:
+    Car:
+      allOf:
+        - $ref: './vehicle.yaml#/components/schemas/Vehicle'
+        - type: object
+          properties:
+            numberOfDoors:
+              type: integer
+              minimum: 2
+              maximum: 5
+          required:
+            - numberOfDoors

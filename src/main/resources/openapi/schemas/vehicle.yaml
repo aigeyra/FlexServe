@@ -1,0 +1,16 @@
+components:
+  schemas:
+    Vehicle:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        brand:
+          type: string
+        model:
+          type: string
+      required:
+        - id
+        - brand
+        - model
