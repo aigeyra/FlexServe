@@ -16,8 +16,8 @@ paths:
                 type: array
                 items:
                   oneOf:
-                    - $ref: './schemas/car.yaml#/Car'
-                    - $ref: './schemas/truck.yaml#/Truck'
+                    - $ref: './schemas/car.yaml#/components/schemas/Car'
+                    - $ref: './schemas/truck.yaml#/components/schemas/Truck'
     post:
       summary: Add a new vehicle
       requestBody:
@@ -27,8 +27,8 @@ paths:
           application/json:
             schema:
               oneOf:
-                - $ref: './schemas/car.yaml#/Car'
-                - $ref: './schemas/truck.yaml#/Truck'
+                - $ref: './schemas/car.yaml#/components/schemas/Car'
+                - $ref: './schemas/truck.yaml#/components/schemas/Truck'
       responses:
         '201':
           description: Vehicle created
@@ -58,7 +58,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: './schemas/car.yaml#/Car'
+              $ref: './schemas/car.yaml#/components/schemas/Car'
       responses:
         '201':
           description: Car created
@@ -72,7 +72,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: './schemas/truck.yaml#/Truck'
+              $ref: './schemas/truck.yaml#/components/schemas/Truck'
       responses:
         '201':
           description: Truck created

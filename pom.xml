@@ -54,7 +54,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/src/main/resources/openapi.yml</inputSpec>
+                            <inputSpec>${project.basedir}/src/main/resources/openapi/vehicle-api.yaml</inputSpec>
                             <generatorName>spring</generatorName>
                             <generateApiTests>false</generateApiTests>
                             <generateApiDocumentation>false</generateApiDocumentation>
@@ -75,8 +75,9 @@
                                 <useSpringBoot3>true</useSpringBoot3>
                                 <unhandledException>true</unhandledException>
                                 <legacyDiscriminatorBehavior>false</legacyDiscriminatorBehavior>
-                                <interfaceOnly>true</interfaceOnly>
+                                <interfaceOnly>false</interfaceOnly>
                                 <returnResponse>true</returnResponse>
+                                <delegatePattern>true</delegatePattern>
                             </configOptions>
                         </configuration>
                     </execution>
